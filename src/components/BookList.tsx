@@ -2,11 +2,14 @@ import { Col, Row, Spinner } from "react-bootstrap";
 import BookCard from "./BookCard";
 import useBooks from "../hooks/useBooks";
 interface BookListProps {
-  subject: string;
+  subject?: string;
+  title?: string;
 }
-const BookList = ({ subject }: BookListProps) => {
-  const { books, error, isLoading } = useBooks(subject.toLocaleLowerCase());
-
+const BookList = ({ subject, title }: BookListProps) => {
+  const { books, error, isLoading } = useBooks(
+    subject ? subject.toLocaleLowerCase() : undefined,
+    title ? title.toLocaleLowerCase() : undefined
+  );
   if (isLoading) {
     return (
       <Spinner

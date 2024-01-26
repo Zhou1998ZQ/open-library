@@ -12,6 +12,7 @@ interface Subject {
 function App() {
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [subject, setSubject] = useState("animal");
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3000/subject")
@@ -44,7 +45,7 @@ function App() {
             />
           </Col>
           <Col md="6">
-            <SearchBar></SearchBar>
+            <SearchBar setTitle={setTitle} setSubject={setSubject}></SearchBar>
           </Col>
         </Row>
 
@@ -65,7 +66,7 @@ function App() {
             </Nav>
           </Col>
           <Col md="10">
-            <BookList subject={subject}></BookList>
+            <BookList subject={subject} title={title}></BookList>
           </Col>
         </Row>
 
