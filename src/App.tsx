@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { PointerEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, Nav, Row } from "react-bootstrap";
 import Logo from "./assets/openlibrary-logo-tighter.svg";
 import BookList from "./components/BookList";
