@@ -5,6 +5,7 @@ import Logo from "./assets/openlibrary-logo-tighter.svg";
 import BookList from "./components/BookList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchBar from "./components/SearchBar";
+
 interface Subject {
   id: number;
   name: string;
@@ -13,11 +14,46 @@ function App() {
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [subject, setSubject] = useState("animal");
   const [title, setTitle] = useState("");
+  // for local test
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/subject")
+  //     .then((response) => response.json())
+  //     .then((data) => setSubjects(data));
+  // }, []);
 
+  // for the vercel server
   useEffect(() => {
-    fetch("http://localhost:3000/subject")
-      .then((response) => response.json())
-      .then((data) => setSubjects(data));
+    const vercelServerSubjects: Subject[] = [
+      {
+        id: 1,
+        name: "Love",
+      },
+      {
+        id: 2,
+        name: "Reality",
+      },
+      {
+        id: 3,
+        name: "Programming",
+      },
+      {
+        id: 4,
+        name: "Heroism",
+      },
+      {
+        id: 5,
+        name: "Family",
+      },
+      {
+        id: 6,
+        name: "Music",
+      },
+      {
+        id: 7,
+        name: "Food",
+      },
+    ];
+    setSubjects(vercelServerSubjects);
   }, []);
 
   const handleClick = (id: number) => {

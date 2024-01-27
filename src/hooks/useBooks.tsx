@@ -31,8 +31,6 @@ const useBooks = (subject?: string, title?: string) => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(subject);
-  console.log(title);
   useEffect(() => {
     setIsLoading(true);
     if (subject) {
