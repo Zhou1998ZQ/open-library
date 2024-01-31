@@ -30,7 +30,7 @@ const BookList = ({ subject, title }: BookListProps) => {
     return <div>{error}.....</div>;
   }
   return (
-    <Row xs={1} md={4} className="g-4 align-items-stretch">
+    <Row xs={1} sm={2} md={4} className="g-4 align-items-stretch">
       {books.map((book, index) => (
         <Col key={index}>
           <BookCard book={book} />

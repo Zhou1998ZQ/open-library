@@ -13,6 +13,9 @@ const SearchBar = ({ setTitle, setSubject }: SearchBarProps) => {
   };
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
+      if (searchValue == "") {
+        return;
+      }
       setSubject("");
       handleSubmit();
     }
